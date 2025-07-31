@@ -1,1 +1,5 @@
 *.pyc
+
+# Entorno virtual
+env/
+venv/
