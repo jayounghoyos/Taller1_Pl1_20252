@@ -9,4 +9,4 @@ def home(request):
     return render(request, 'home.html', {'name': 'Juan Andrés Young Hoyos ;)'})
 
 def about(request):
-    return render(request, 'about.html', {'name': 'Juan Andrés Young Hoyos ;)'})
+    return render(request, 'about.html', {'name': 'Juan Andrés Young Hoyos '})
