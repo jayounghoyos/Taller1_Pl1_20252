@@ -1,5 +1,63 @@
-*.pyc
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Entorno virtual
+# Virtual environment
 env/
 venv/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+
+# =========================
+# Django
+# =========================
+
+# SQLite database
+db.sqlite3
+*.db
+
+# Media uploads (user-uploaded content)
+media/
+
+# Static files collected (Django collectstatic)
+staticfiles/
+moviereviews/static/*
+
+# Logs
+*.log
+
+# =========================
+# OS / Editors
+# =========================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# =========================
+# Misc
+# =========================
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints
+
+# Backup files
+*.bak
+*.swp
+*.swo
+*.tmp

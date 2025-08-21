@@ -1,29 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
-
-<h1>Welcome to Home Page, {{name}}</h1>
-<h2>This is the full home page</h2>
-
-
 <div class="container">
     <form action="">
         <div class="mb-3">
             <label for="searchMovie" class="from-label">Search movie:</label>
             <input type="text" class="form-control" name="searchMovie"/>
         </div>
-        <button type="submit"class = "btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
     <p>Searching for {{searchTerm}}</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for movie in movies %}
-                <h2>{{movie.title}}</h2>
-                <h3>{{movie.description}}</h3>
-
-                <img src="{{movie.image.url}}">
-                {% if movie.url %}
-                    <a href="{{movie.url}}">Movie link</a>
-                {% endif %}
-        {% endfor %}
-    <br/>
+        <div class="col">
+            <div class="card">
+                <img src="{{ movie.image.url }}" class="card-img-top" alt="{{ movie.title }}">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.description }}</p>
+                    <div class="mb-2">
+                        {% if movie.genre %}
+                            <span class="badge bg-secondary me-2">Genre: {{ movie.genre }}</span>
+                        {% endif %}
+                        {% if movie.year %}
+                            <span class="badge bg-info">Year: {{ movie.year }}</span>
+                        {% endif %}
+                    </div>
+                    {% if movie.url %}
+                        <a href="{{ movie.url }}" class="btn btn-primary">Movie Link</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>    
+        {% endfor %}    
+    </div>
 </div>
+{%endblock content%}
