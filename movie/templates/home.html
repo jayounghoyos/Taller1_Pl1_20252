@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-</head>
+
 <div class="container">
-    <form action="">
-        <div class="mb-3">
-            <label for="searchMovie" class="from-label">Search movie:</label>
-            <input type="text" class="form-control" name="searchMovie"/>
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+    <form action="" class="mb-4">
+        <label for="searchMovie" class="form-label">Search movie:</label>
+        <input type="text" class="form-control" name="searchMovie" id="searchMovie"/>
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
     </form>
 
     <p>Searching for {{searchTerm}}</p>

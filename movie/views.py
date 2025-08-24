@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import Movie
-import matplotlib.pyplot as plt
+from django.http import HttpResponse
 import matplotlib
+import matplotlib.pyplot as plt
 import io
 import urllib, base64
 # Create your views here.
@@ -12,15 +12,15 @@ def home(request):
     #return render(request, 'home.html')
     #return render(request, 'home.html', {'name': 'Juan Andrés Young Hoyos ;)'})
 
-    seachTerm = request.GET.get('searchMovie')
-    if seachTerm:
-        movies = Movie.objects.filter(title__icontains=seachTerm)
+    searchTerm = request.GET.get('searchMovie')
+    if searchTerm:
+        movies = Movie.objects.filter(title__icontains=searchTerm)
     else:
         movies = Movie.objects.all()
-    return render(request, 'home.html', {'searchTerm': seachTerm, 'movies': movies, 'name': 'Juan Andrés Young Hoyos'})
+    return render(request, 'home.html', {'searchTerm': searchTerm, 'movies': movies, 'name': 'Juan Andrés Young Hoyos'})
 
 def about(request):
-    return render(request, 'about.html', {'name': 'Juan Andrés Young Hoyos '})
+    return render(request, 'about.html')
 
 def statistics_view(request):
     matplotlib.use('Agg')  # Establecer el backend de Matplotlib en 'Agg'
@@ -58,12 +58,6 @@ def statistics_view(request):
             else:
                 movie_counts_by_genre["Sin género"] = 1
     
-    # Crear figura con dos subplots (dos gráficas lado a lado)
-    # Opciones de tamaño:
-    # figsize=(12, 5)  - Más compacto
-    # figsize=(15, 6)  - Tamaño actual (bueno para pantallas grandes)
-    # figsize=(18, 8)  - Más grande y detallado
-    # figsize=(20, 10) - Muy grande para presentaciones
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 3))
     
     # GRÁFICA 1: Películas por año
